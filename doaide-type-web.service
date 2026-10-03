@@ -1,0 +1,15 @@
+[Unit]
+Description=DoAide Type Web Frontend
+After=network.target
+
+[Service]
+Type=simple
+User=www-data
+WorkingDirectory=/opt/DoAide-Type
+ExecStart=/usr/bin/npx serve dist -l tcp://172.18.0.1:3056 -s
+Restart=on-failure
+RestartSec=5
+Environment=NODE_ENV=production
+
+[Install]
+WantedBy=multi-user.target

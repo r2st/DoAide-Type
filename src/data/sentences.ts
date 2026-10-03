@@ -1,0 +1,61 @@
+const SENTENCES = [
+  'The quick brown fox jumps over the lazy dog.',
+  'Pack my box with five dozen liquor jugs.',
+  'How vexingly quick daft zebras jump.',
+  'The five boxing wizards jump quickly.',
+  'Bright vixens jump; dozy fowl quack.',
+  'Sphinx of black quartz, judge my vow.',
+  'Two driven jocks help fax my big quiz.',
+  'The job requires extra pluck and zeal from every young wage earner.',
+  'A mad boxer shot a quick, gloved jab to the jaw of his dizzy opponent.',
+  'We promptly judged antique ivory buckles for the next prize.',
+  'Crazy Frederick bought many very exquisite opal jewels.',
+  'Sixty zippers were quickly picked from the woven jute bag.',
+  'A quick movement of the enemy will jeopardize six gunboats.',
+  'All questions asked by five watched experts amaze the judge.',
+  'Jack quietly moved up front and seized the big ball of wax.',
+  'The early morning sun cast long shadows across the empty parking lot.',
+  'She carefully arranged the flowers in a beautiful crystal vase on the table.',
+  'Technology continues to transform the way we communicate with each other.',
+  'The children played happily in the park while their parents watched nearby.',
+  'A good programmer writes code that humans can understand easily.',
+  'The best way to predict the future is to create it with your own hands.',
+  'Success is not final and failure is not fatal; it is the courage to continue that counts.',
+  'The only way to do great work is to love what you do every single day.',
+  'In the middle of difficulty lies opportunity waiting to be discovered.',
+  'Life is what happens when you are busy making other plans for the future.',
+  'The greatest glory in living lies not in never falling but in rising every time we fall.',
+  'It does not matter how slowly you go as long as you do not stop moving forward.',
+  'Everything you have ever wanted is sitting on the other side of fear.',
+  'The mind is everything. What you think, you become in the end.',
+  'An investment in knowledge always pays the best interest over time.',
+  'The purpose of our lives is to be happy and spread joy to others.',
+  'Innovation distinguishes between a leader and a follower in any field.',
+  'Stay hungry and stay foolish. Never let go of your curiosity.',
+  'Your time is limited, so do not waste it living someone else\'s life.',
+  'The only impossible journey is the one you never begin to take.',
+  'Believe you can and you are already halfway there to your goal.',
+  'What lies behind us and what lies before us are tiny matters compared to what lies within us.',
+  'The future belongs to those who believe in the beauty of their dreams.',
+  'It is during our darkest moments that we must focus to see the light ahead.',
+  'Do not go where the path may lead. Go instead where there is no path and leave a trail.',
+  'Twenty years from now you will be more disappointed by the things you did not do.',
+  'The only person you are destined to become is the person you decide to be.',
+  'Happiness is not something ready made. It comes from your own actions and choices.',
+  'If you want to lift yourself up, try lifting someone else first.',
+  'Education is the most powerful weapon which you can use to change the world.',
+  'Strive not to be a success, but rather to be of value to those around you.',
+  'The secret of getting ahead is simply getting started with the first step.',
+  'Quality is not an act. It is a habit that must be practiced every day.',
+  'The way to get started is to quit talking and begin doing the work.',
+  'Try not to become a person of success, but rather a person of value.',
+]
+
+export function generateSentences(count: number): string {
+  const selected: string[] = []
+  const shuffled = [...SENTENCES].sort(() => Math.random() - 0.5)
+  for (let i = 0; i < Math.min(count, shuffled.length); i++) {
+    selected.push(shuffled[i])
+  }
+  return selected.join(' ')
+}
