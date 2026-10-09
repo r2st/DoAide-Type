@@ -2,9 +2,16 @@ import { useCallback, useEffect, useState } from 'react'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import { Header } from './components/Header'
 import { useTheme } from './hooks/useTheme'
-import { HistoryPage } from './pages/HistoryPage'
-import { PracticePage } from './pages/PracticePage'
 import { TestPage } from './pages/TestPage'
+import { PracticePage } from './pages/PracticePage'
+import { HistoryPage } from './pages/HistoryPage'
+import { ToolsPage } from './pages/ToolsPage'
+import { WordCounterPage } from './pages/WordCounterPage'
+import { CharacterCounterPage } from './pages/CharacterCounterPage'
+import { CaseConverterPage } from './pages/CaseConverterPage'
+import { LoremIpsumPage } from './pages/LoremIpsumPage'
+import { BlogPage } from './pages/BlogPage'
+import { BlogPostPage } from './pages/BlogPostPage'
 import { getSoundEnabled, setSoundEnabled } from './utils/storage'
 
 export default function App() {
@@ -43,6 +50,13 @@ export default function App() {
             <Route path="/" element={<TestPage soundEnabled={soundEnabled} />} />
             <Route path="/practice" element={<PracticePage />} />
             <Route path="/history" element={<HistoryPage />} />
+            <Route path="/tools" element={<ToolsPage />} />
+            <Route path="/word-counter" element={<WordCounterPage />} />
+            <Route path="/character-counter" element={<CharacterCounterPage />} />
+            <Route path="/case-converter" element={<CaseConverterPage />} />
+            <Route path="/lorem-ipsum" element={<LoremIpsumPage />} />
+            <Route path="/blog" element={<BlogPage />} />
+            <Route path="/blog/:slug" element={<BlogPostPage />} />
           </Routes>
         </main>
         <footer
@@ -51,7 +65,7 @@ export default function App() {
         >
           <span style={{ color: 'var(--text-secondary)' }}>DoAide</span>{' '}
           <span className="italic" style={{ color: '#F0B429' }}>Type</span>{' '}
-          — Free typing speed test &middot; type.doaide.com
+          — Free typing &amp; text tools &middot; type.doaide.com
         </footer>
       </div>
     </BrowserRouter>

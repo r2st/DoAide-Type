@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { useNavigate, useLocation } from 'react-router-dom'
 import type { ThemeName } from '../types'
 
@@ -6,6 +7,14 @@ const THEMES: { value: ThemeName; label: string }[] = [
   { value: 'light', label: 'Light' },
   { value: 'retro', label: 'Retro' },
   { value: 'ocean', label: 'Ocean' },
+]
+
+const NAV_ITEMS = [
+  { path: '/', label: 'Test' },
+  { path: '/practice', label: 'Practice' },
+  { path: '/tools', label: 'Tools' },
+  { path: '/blog', label: 'Blog' },
+  { path: '/history', label: 'History' },
 ]
 
 interface HeaderProps {
@@ -18,16 +27,16 @@ interface HeaderProps {
 export function Header({ theme, onThemeChange, soundEnabled, onSoundToggle }: HeaderProps) {
   const navigate = useNavigate()
   const location = useLocation()
+  const [menuOpen, setMenuOpen] = useState(false)
 
-  const navItems = [
-    { path: '/', label: 'Test' },
-    { path: '/practice', label: 'Practice' },
-    { path: '/history', label: 'History' },
-  ]
+  const isActive = (path: string) => {
+    if (path === '/') return location.pathname === '/'
+    return location.pathname.startsWith(path)
+  }
 
   return (
     <header
-      className="flex items-center justify-between px-4 sm:px-6 py-3 border-b"
+      className="flex items-center justify-between px-4 sm:px-6 py-3 border-b relative"
       style={{ borderColor: 'var(--border-color)', backgroundColor: 'var(--bg-secondary)' }}
     >
       <div
@@ -42,15 +51,15 @@ export function Header({ theme, onThemeChange, soundEnabled, onSoundToggle }: He
         </span>
       </div>
 
-      <nav className="hidden sm:flex items-center gap-1">
-        {navItems.map(item => (
+      <nav className="hidden md:flex items-center gap-1">
+        {NAV_ITEMS.map(item => (
           <button
             key={item.path}
             onClick={() => navigate(item.path)}
             className="px-3 py-1.5 rounded-md text-sm transition-colors"
             style={{
-              color: location.pathname === item.path ? 'var(--accent)' : 'var(--text-secondary)',
-              backgroundColor: location.pathname === item.path ? 'var(--bg-tertiary)' : 'transparent',
+              color: isActive(item.path) ? 'var(--accent)' : 'var(--text-secondary)',
+              backgroundColor: isActive(item.path) ? 'var(--bg-tertiary)' : 'transparent',
             }}
           >
             {item.label}
@@ -65,7 +74,7 @@ export function Header({ theme, onThemeChange, soundEnabled, onSoundToggle }: He
           style={{ color: 'var(--text-secondary)' }}
           title={soundEnabled ? 'Mute' : 'Unmute'}
         >
-          {soundEnabled ? '🔊' : '🔇'}
+          {soundEnabled ? '\u{1F50A}' : '\u{1F507}'}
         </button>
 
         <select
@@ -81,7 +90,36 @@ export function Header({ theme, onThemeChange, soundEnabled, onSoundToggle }: He
             <option key={t.value} value={t.value}>{t.label}</option>
           ))}
         </select>
+
+        <button
+          className="md:hidden p-1.5 rounded-md text-sm"
+          style={{ color: 'var(--text-secondary)' }}
+          onClick={() => setMenuOpen(!menuOpen)}
+        >
+          {menuOpen ? '✕' : '☰'}
+        </button>
       </div>
+
+      {menuOpen && (
+        <div
+          className="absolute top-full left-0 right-0 md:hidden z-50 border-b"
+          style={{ backgroundColor: 'var(--bg-secondary)', borderColor: 'var(--border-color)' }}
+        >
+          {NAV_ITEMS.map(item => (
+            <button
+              key={item.path}
+              onClick={() => { navigate(item.path); setMenuOpen(false) }}
+              className="block w-full text-left px-6 py-3 text-sm transition-colors"
+              style={{
+                color: isActive(item.path) ? 'var(--accent)' : 'var(--text-secondary)',
+                backgroundColor: isActive(item.path) ? 'var(--bg-tertiary)' : 'transparent',
+              }}
+            >
+              {item.label}
+            </button>
+          ))}
+        </div>
+      )}
     </header>
   )
 }
