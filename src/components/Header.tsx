@@ -3,8 +3,8 @@ import { useNavigate, useLocation } from 'react-router-dom'
 import type { ThemeName } from '../types'
 
 const THEMES: { value: ThemeName; label: string }[] = [
-  { value: 'dark', label: 'Dark' },
   { value: 'light', label: 'Light' },
+  { value: 'dark', label: 'Dark' },
   { value: 'retro', label: 'Retro' },
   { value: 'ocean', label: 'Ocean' },
 ]
@@ -40,13 +40,14 @@ export function Header({ theme, onThemeChange, soundEnabled, onSoundToggle }: He
       style={{ borderColor: 'var(--border-color)', backgroundColor: 'var(--bg-secondary)' }}
     >
       <div
-        className="flex items-center gap-2 cursor-pointer select-none"
+        className="flex items-center gap-1 cursor-pointer select-none da-header-title"
         onClick={() => navigate('/')}
       >
-        <span className="text-lg font-bold" style={{ color: 'var(--text-primary)' }}>
+        <span className="text-lg font-bold" style={{ color: 'var(--da-primary)' }}>
           DoAide
         </span>
-        <span className="text-lg font-bold italic" style={{ color: '#F0B429' }}>
+        <span className="text-lg" style={{ color: 'var(--text-muted)' }}>|</span>
+        <span className="text-lg font-bold" style={{ color: 'var(--text-primary)' }}>
           Type
         </span>
       </div>

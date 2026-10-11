@@ -173,7 +173,7 @@ export function TestPage({ soundEnabled }: TestPageProps) {
           </h3>
           <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 text-xs">
             {[
-              { range: '120+ WPM', label: 'Pro', color: '#F0B429' },
+              { range: '120+ WPM', label: 'Pro', color: '#0D9488' },
               { range: '90-120 WPM', label: 'Expert', color: '#a855f7' },
               { range: '70-90 WPM', label: 'Fast', color: '#3b82f6' },
               { range: '50-70 WPM', label: 'Above Average', color: '#22c55e' },

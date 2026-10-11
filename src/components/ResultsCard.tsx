@@ -30,18 +30,19 @@ export function ResultsCard({ result, personalBest, onRestart }: ResultsCardProp
       >
         {/* Header */}
         <div className="flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <span className="text-lg font-bold" style={{ color: 'var(--text-primary)' }}>
+          <div className="flex items-center gap-1 da-header-title">
+            <span className="text-lg font-bold" style={{ color: 'var(--da-primary)' }}>
               DoAide
             </span>
-            <span className="text-lg font-bold italic" style={{ color: '#F0B429' }}>
+            <span className="text-lg" style={{ color: 'var(--text-muted)' }}>|</span>
+            <span className="text-lg font-bold" style={{ color: 'var(--text-primary)' }}>
               Type
             </span>
           </div>
           {isNewPb && (
             <span
               className="px-3 py-1 rounded-full text-xs font-bold"
-              style={{ backgroundColor: '#F0B429', color: '#1a1a2e' }}
+              style={{ backgroundColor: 'var(--da-primary)', color: '#FFFFFF' }}
             >
               NEW PERSONAL BEST!
             </span>

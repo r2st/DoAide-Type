@@ -44,7 +44,7 @@ export interface PersonalBest {
 }
 
 export const RANK_LABELS: { min: number; label: string; color: string }[] = [
-  { min: 120, label: 'Pro', color: '#F0B429' },
+  { min: 120, label: 'Pro', color: '#0D9488' },
   { min: 90, label: 'Expert', color: '#a855f7' },
   { min: 70, label: 'Fast', color: '#3b82f6' },
   { min: 50, label: 'Above Average', color: '#22c55e' },

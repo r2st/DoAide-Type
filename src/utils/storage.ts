@@ -45,9 +45,9 @@ export function clearHistory(): void {
 
 export function getTheme(): ThemeName {
   try {
-    return (localStorage.getItem(THEME_KEY) as ThemeName) || 'dark'
+    return (localStorage.getItem(THEME_KEY) as ThemeName) || 'light'
   } catch {
-    return 'dark'
+    return 'light'
   }
 }
 

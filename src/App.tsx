@@ -60,12 +60,21 @@ export default function App() {
           </Routes>
         </main>
         <footer
-          className="text-center py-4 text-xs"
+          className="text-center py-6 text-xs da-footer"
           style={{ color: 'var(--text-muted)', borderTop: '1px solid var(--border-color)' }}
         >
-          <span style={{ color: 'var(--text-secondary)' }}>DoAide</span>{' '}
-          <span className="italic" style={{ color: '#F0B429' }}>Type</span>{' '}
-          — Free typing &amp; text tools &middot; type.doaide.com
+          <div className="flex flex-col items-center gap-2">
+            <div className="flex items-center gap-4 flex-wrap justify-center">
+              <a href="https://doaide.com" className="hover:underline" style={{ color: 'var(--text-secondary)' }}>DoAide</a>
+              <a href="https://type.doaide.com" className="hover:underline" style={{ color: 'var(--text-secondary)' }}>Type</a>
+            </div>
+            <div
+              className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs"
+              style={{ backgroundColor: 'var(--bg-tertiary)', color: 'var(--da-primary)' }}
+            >
+              A DoAide Product
+            </div>
+          </div>
         </footer>
       </div>
     </BrowserRouter>
