@@ -1,5 +1,4 @@
 import { useState, useMemo } from 'react'
-import { SEOHead } from '../components/SEOHead'
 
 export function WordCounterPage() {
   const [text, setText] = useState('')
@@ -28,11 +27,6 @@ export function WordCounterPage() {
 
   return (
     <>
-      <SEOHead
-        title="Free Word Counter — Count Words, Characters & Sentences | DoAide Type"
-        description="Instantly count words, characters, sentences, and paragraphs. Free online word counter with reading time estimate — no login required."
-        path="/word-counter"
-      />
       <div className="px-4 py-8 max-w-4xl mx-auto">
         <h1 className="text-2xl font-bold mb-2 text-center" style={{ color: 'var(--text-primary)' }}>
           Word Counter

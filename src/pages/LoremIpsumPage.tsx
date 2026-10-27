@@ -1,5 +1,4 @@
 import { useState, useMemo, useCallback } from 'react'
-import { SEOHead } from '../components/SEOHead'
 
 const LOREM_WORDS = [
   'lorem', 'ipsum', 'dolor', 'sit', 'amet', 'consectetur', 'adipiscing', 'elit',
@@ -66,11 +65,6 @@ export function LoremIpsumPage() {
 
   return (
     <>
-      <SEOHead
-        title="Free Lorem Ipsum Generator — Paragraphs, Sentences & Words | DoAide Type"
-        description="Generate lorem ipsum placeholder text by paragraphs, sentences, or words. Free dummy text generator — no login required."
-        path="/lorem-ipsum"
-      />
       <div className="px-4 py-8 max-w-4xl mx-auto">
         <h1 className="text-2xl font-bold mb-2 text-center" style={{ color: 'var(--text-primary)' }}>
           Lorem Ipsum Generator

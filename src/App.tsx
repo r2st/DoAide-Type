@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useState } from 'react'
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import { BrowserRouter, Route, Routes, useLocation } from 'react-router-dom'
 import { Header } from './components/Header'
 import { useTheme } from './hooks/useTheme'
 import { TestPage } from './pages/TestPage'
@@ -13,6 +13,13 @@ import { LoremIpsumPage } from './pages/LoremIpsumPage'
 import { BlogPage } from './pages/BlogPage'
 import { BlogPostPage } from './pages/BlogPostPage'
 import { getSoundEnabled, setSoundEnabled } from './utils/storage'
+import useSEO from './hooks/useSEO'
+
+// Keeps <head> in sync with routeMeta on client-side navigation.
+function RouteSEO() {
+  useSEO(useLocation().pathname.replace(/\/+$/, '') || '/')
+  return null
+}
 
 export default function App() {
   const { theme, setTheme } = useTheme()
@@ -38,6 +45,7 @@ export default function App() {
 
   return (
     <BrowserRouter>
+      <RouteSEO />
       <div className="min-h-screen flex flex-col" style={{ backgroundColor: 'var(--bg-primary)' }}>
         <Header
           theme={theme}

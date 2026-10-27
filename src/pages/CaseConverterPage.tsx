@@ -1,5 +1,4 @@
 import { useState, useCallback } from 'react'
-import { SEOHead } from '../components/SEOHead'
 
 type CaseType = 'upper' | 'lower' | 'title' | 'sentence' | 'camel' | 'pascal' | 'snake' | 'kebab' | 'toggle'
 
@@ -70,11 +69,6 @@ export function CaseConverterPage() {
 
   return (
     <>
-      <SEOHead
-        title="Free Text Case Converter — UPPER, lower, Title, camelCase & More | DoAide Type"
-        description="Convert text between UPPER CASE, lower case, Title Case, camelCase, snake_case, kebab-case, and more. Free online case converter — no login required."
-        path="/case-converter"
-      />
       <div className="px-4 py-8 max-w-4xl mx-auto">
         <h1 className="text-2xl font-bold mb-2 text-center" style={{ color: 'var(--text-primary)' }}>
           Text Case Converter

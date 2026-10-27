@@ -97,6 +97,13 @@ export function TestPage({ soundEnabled }: TestPageProps) {
 
   return (
     <div className="px-4 py-6 space-y-6">
+      <h1
+        className="text-2xl font-bold text-center"
+        style={{ color: 'var(--text-primary)' }}
+      >
+        Typing Speed Test
+      </h1>
+
       {/* Mode selector (only when idle) */}
       {status === 'idle' && (
         <ModeSelector

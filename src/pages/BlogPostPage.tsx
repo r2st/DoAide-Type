@@ -1,6 +1,4 @@
-import { useEffect } from 'react'
 import { useParams, useNavigate, Link } from 'react-router-dom'
-import { SEOHead } from '../components/SEOHead'
 import { BLOG_POSTS } from '../data/blogPosts'
 
 function parseParagraph(text: string): React.ReactNode {
@@ -40,51 +38,6 @@ export function BlogPostPage() {
   const navigate = useNavigate()
   const post = BLOG_POSTS.find(p => p.slug === slug)
 
-  useEffect(() => {
-    if (!post) return
-
-    const allText = post.sections.flatMap(s => s.paragraphs).join(' ')
-    const wordCount = allText.split(/\s+/).filter(Boolean).length
-
-    const jsonLd: Record<string, unknown>[] = [
-      {
-        '@type': 'BlogPosting',
-        headline: post.title,
-        description: post.excerpt,
-        datePublished: new Date(post.date).toISOString().split('T')[0],
-        dateModified: new Date(post.date).toISOString().split('T')[0],
-        url: `https://type.doaide.com/blog/${post.slug}`,
-        wordCount,
-        author: { '@type': 'Organization', name: 'DoAide', url: 'https://doaide.com' },
-        publisher: { '@type': 'Organization', name: 'DoAide', url: 'https://doaide.com' },
-        mainEntityOfPage: { '@type': 'WebPage', '@id': `https://type.doaide.com/blog/${post.slug}` },
-      },
-    ]
-
-    if (post.faqs && post.faqs.length > 0) {
-      jsonLd.push({
-        '@type': 'FAQPage',
-        mainEntity: post.faqs.map(faq => ({
-          '@type': 'Question',
-          name: faq.question,
-          acceptedAnswer: {
-            '@type': 'Answer',
-            text: faq.answer,
-          },
-        })),
-      })
-    }
-
-    const script = document.createElement('script')
-    script.type = 'application/ld+json'
-    script.textContent = JSON.stringify({ '@context': 'https://schema.org', '@graph': jsonLd })
-    document.head.appendChild(script)
-
-    return () => {
-      document.head.removeChild(script)
-    }
-  }, [post])
-
   if (!post) {
     return (
       <div className="px-4 py-16 text-center">
@@ -102,11 +55,6 @@ export function BlogPostPage() {
 
   return (
     <>
-      <SEOHead
-        title={`${post.title} | DoAide Type Blog`}
-        description={post.excerpt}
-        path={`/blog/${post.slug}`}
-      />
       <article className="px-4 py-8 max-w-3xl mx-auto">
         <button
           onClick={() => navigate('/blog')}

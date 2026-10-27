@@ -1,5 +1,4 @@
 import { useNavigate } from 'react-router-dom'
-import { SEOHead } from '../components/SEOHead'
 
 const TOOLS = [
   {
@@ -39,11 +38,6 @@ export function ToolsPage() {
 
   return (
     <>
-      <SEOHead
-        title="Free Text & Typing Tools — Word Counter, Case Converter & More | DoAide Type"
-        description="Free online text tools: typing speed test, word counter, character counter, text case converter, and lorem ipsum generator. No login required."
-        path="/tools"
-      />
       <div className="px-4 py-8 max-w-4xl mx-auto">
         <h1 className="text-2xl font-bold mb-2 text-center" style={{ color: 'var(--text-primary)' }}>
           Free Text &amp; Typing Tools

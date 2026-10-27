@@ -1,5 +1,4 @@
 import { useNavigate } from 'react-router-dom'
-import { SEOHead } from '../components/SEOHead'
 import { BLOG_POSTS } from '../data/blogPosts'
 
 export function BlogPage() {
@@ -7,11 +6,6 @@ export function BlogPage() {
 
   return (
     <>
-      <SEOHead
-        title="Blog — Typing Tips, Text Tools & Productivity | DoAide Type"
-        description="Learn to type faster, write better, and boost productivity. Tips on typing speed, text formatting, and developer tools."
-        path="/blog"
-      />
       <div className="px-4 py-8 max-w-3xl mx-auto">
         <h1 className="text-2xl font-bold mb-2 text-center" style={{ color: 'var(--text-primary)' }}>
           Blog

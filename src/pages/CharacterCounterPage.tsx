@@ -1,5 +1,4 @@
 import { useState, useMemo } from 'react'
-import { SEOHead } from '../components/SEOHead'
 
 const PLATFORM_LIMITS = [
   { name: 'Twitter/X', limit: 280 },
@@ -25,11 +24,6 @@ export function CharacterCounterPage() {
 
   return (
     <>
-      <SEOHead
-        title="Free Character Counter — Count Characters for Twitter, SEO & More | DoAide Type"
-        description="Count characters instantly with platform limits for Twitter, Instagram, LinkedIn, YouTube, and SEO meta tags. Free character counter — no login required."
-        path="/character-counter"
-      />
       <div className="px-4 py-8 max-w-4xl mx-auto">
         <h1 className="text-2xl font-bold mb-2 text-center" style={{ color: 'var(--text-primary)' }}>
           Character Counter
